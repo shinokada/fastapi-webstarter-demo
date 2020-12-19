@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}FastAPI Starter{% endblock %}
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+
+{% block page_content %}
+{% include 'include/sidebar.html' %}
+<main role="main" class="container">
+    <div class="row">
+        {{data.text|safe}}
+    </div>
+</main><!-- /.container -->
+
+{{data.page}}
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+
+{% endblock %}
