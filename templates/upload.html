@@ -8,10 +8,32 @@
 {% endblock %}
 
 {% block page_content %}
-<h1>Upload</h1>
+<div class="col-12 up-area">
+    <h1>Upload</h1>
+    {{result}}
+    <input type="file" name="file" id="file">
+    <!-- Drag and Drop container-->
+    <div class="upload-area" id="uploadfile">
+        <h2 id="howto">Drag and Drop file here<br />Or<br />Click to Upload</h2>
+        <button type="submit" class="box_button">Upload</button>
+    </div>
+</div>
 
+
+<div class="col-12">
+    <div class="colorpalette">
+        <h3>Uploaded Image</h3>
+        <div id="result" class="row">
+            <div id="original" class="col-12">
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
+
+<script type="module" src="{{ url_for('static', path='/js/dragdrop.js') }}"></script>
+
 {% endblock %}
