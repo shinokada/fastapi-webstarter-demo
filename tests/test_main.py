@@ -48,8 +48,8 @@ def test_get_upload():
     assert b"Hello from upload.py" in response.content
 
 
-def test_post_upload():
-    response = client.post("/upload", data={"file": "flower"}, headers={
-                           "Content-Type": "application/x-www-form-urlencoded"})
-    assert response.status_code == 200
-    assert b"Hello from upload.py" in response.content
+# def test_post_upload():
+#     response = client.post("/upload", data={"file": "flower"}, headers={
+#                            "Content-Type": "application/x-www-form-urlencoded"})
+#     assert response.status_code == 200
+#     assert b"Hello from upload.py" in response.content
