@@ -8,11 +8,15 @@ from app.routers import upload, twoforms, unsplash, accordion
 from dotenv import load_dotenv
 load_dotenv()
 
+import mimetypes
+mimetypes.init()
+
 app = FastAPI()
 
 
 templates = Jinja2Templates(directory="templates")
 
+mimetypes.add_type('application/javascript', '.js')
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(upload.router)
