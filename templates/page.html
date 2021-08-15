@@ -8,9 +8,11 @@
 
 {% block page_content %}
 {% include 'include/sidebar.html' %}
-<main role="main" class="container">
+<main role="main" class="container-fluid">
     <div class="row">
-        {{data.text|safe}}
+        <div class="col">
+            {{data.text|safe}}
+        </div>
     </div>
 </main><!-- /.container -->
 

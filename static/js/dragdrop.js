@@ -4,6 +4,7 @@ $(function () {
   dragdrop();
 
   function preparedata (file) {
+    console.log("Preparing ...")
     const img = document.createElement("img");
     img.src = URL.createObjectURL(file);
     detect(img.src, function (result) {
@@ -26,7 +27,7 @@ $(function () {
     e.preventDefault();
     $("#howto").text("We are uploading your file.");
     let file = e.originalEvent.dataTransfer.files;
-    console.log("file: ", file);
+    console.log("File uploaded: ", file);
     let imageType = /image.*/;
     let winWidth = $("#window_width").val();
     let dropped = file[0];
@@ -36,7 +37,7 @@ $(function () {
       console.log("not image");
       $("#howto").text("Please use an image file. Try one more time.");
     }
-
+    console.log("done drop.")
   });
 
   // Open file selector on div click

@@ -4,6 +4,7 @@ from pathlib import Path
 from PIL import Image
 import markdown
 from ..config import settings
+import functools
 
 
 def openfile(filename):
