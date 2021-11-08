@@ -7,4 +7,4 @@ python-multipart==0.0.5
 jinja2==3.0.2
 Markdown==3.3.4
 pytest==6.2.5
-Pillow==8.3.2
+Pillow==8.4.0

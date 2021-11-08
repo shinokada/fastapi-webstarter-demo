@@ -34,5 +34,5 @@ This repo includes all the file and it is ready to deploy to Heroku.
 - jinja2==3.0.2
 - Markdown==3.3.4
 - pytest==6.2.5
-- Pillow==8.3.2
+- Pillow==8.4.0
   
