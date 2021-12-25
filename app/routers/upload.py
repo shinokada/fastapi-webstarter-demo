@@ -9,8 +9,7 @@ templates = Jinja2Templates(directory="templates/")
 
 @router.get("/upload", response_class=HTMLResponse)
 def get_upload(request: Request):
-    result = "Hello from upload.py"
-    return templates.TemplateResponse('upload.html', context={'request': request, 'result': result})
+    return templates.TemplateResponse('upload.html', context={'request': request})
 
 
 @router.post("/upload/new/")

@@ -123,6 +123,7 @@ a:focus {
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    color:#fff;
 }
 
 #sidebar ul li a:hover {
@@ -189,4 +190,8 @@ a.article:hover {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+#sidebarCollapse span{
+    color: #fff;
 }

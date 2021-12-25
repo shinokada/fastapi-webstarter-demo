@@ -6,7 +6,7 @@ Please read the Medium article at [https://shinichiokada.medium.com/](https://sh
 
 ## Overview
 
-A static simple website ready to deploy.
+A simple website ready to deploy.
 This repo includes all the file and it is ready to deploy to Heroku.
 
 - .env
