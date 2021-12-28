@@ -14,7 +14,7 @@ Please read the Medium article at [https://shinichiokada.medium.com/](https://sh
 
 ## Links
 
-- [Demo](https://fastapi-web-starter-2.herokuapp.com/)
+- [Demo](https://fastapi-webstarter-demo.herokuapp.com/)
 - [Building a Website Starter with FastAPI](https://levelup.gitconnected.com/building-a-website-starter-with-fastapi-92d077092864)
 - [Link: How to Deploy a FastAPI App on Heroku for Free](https://towardsdatascience.com/how-to-deploy-your-fastapi-app-on-heroku-for-free-8d4271a4ab9)
 - [How to Build a Drag & Drop Form with FastAPI & JavaScript](https://towardsdatascience.com/how-to-build-a-drag-drop-form-with-python-javascript-f5e43433b005)
