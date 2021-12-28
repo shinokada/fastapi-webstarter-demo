@@ -1,5 +1,4 @@
-import os
-from fastapi import Request, Form, APIRouter
+from fastapi import Request, APIRouter
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from ..library.search import unsplashFetch
@@ -22,5 +21,5 @@ async def get_index(request: Request,):
 @router.get("/medium-unsplash-image/photos/{tag}/{page_num}")
 async def photos(request: Request, tag: str, page_num: int):
     # tag = tag
-    img_urls = unsplashFetch(tag, page_num)['results']
-    return(img_urls)
+    data = unsplashFetch(tag, page_num)
+    return(data)

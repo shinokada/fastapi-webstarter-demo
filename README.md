@@ -27,31 +27,35 @@ See requirements.txt.
 
 ## Installation & Usage
 
+Get your Unsplash API and put it in the `.env` file.
+
 ```bash
 $ git clone git@github.com:shinokada/fastapi-web-starter.git
-# Or using downloaded zip file 
-$ unzip fastapi-web-starter.zip
-
 # change the directory
 $ cd fastapi-web-starter
 # install packages
 $ pip install -r requirements.txt
 # start the server
-$ uvicorn app.main:app --reload --port 8080
+$ uvicorn app.main:app --reload --port 8000
 ```
 
-Visit [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
+Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
 ![Starting](./images/image-1.png)
 
 ## Features
 
+- Medium-like Unsplash image insert
 - Drag & Drop Form
 - Menu
 - Unsplash
 - Accordion
 - Markdown pages
 - Two Forms
+
+## Note
+
+http://127.0.0.1:8000/medium-unsplash-image uses Bootstrap 5 and other pages use Bootstrap 4.
 
 ## Test
 
