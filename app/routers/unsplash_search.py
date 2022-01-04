@@ -7,7 +7,7 @@ templates = Jinja2Templates(directory="templates")
 router = APIRouter()
 
 
-@router.get("/medium-unsplash-image", response_class=HTMLResponse)
+@router.get("/unsplash-search", response_class=HTMLResponse)
 async def get_index(request: Request,):
     title = "Medium Unsplash Image"
     data = {
@@ -15,10 +15,10 @@ async def get_index(request: Request,):
         "title": title,
     }
 
-    return templates.TemplateResponse("medium_image.html", data)
+    return templates.TemplateResponse("unsplash_search.html", data)
 
 
-@router.get("/medium-unsplash-image/photos/{tag}/{page_num}")
+@router.get("/unsplash-search/photos/{tag}/{page_num}")
 async def photos(request: Request, tag: str, page_num: int):
     # tag = tag
     data = unsplashFetch(tag, page_num)

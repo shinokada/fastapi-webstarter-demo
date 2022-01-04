@@ -5,7 +5,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from .library.helpers import *
-from app.routers import upload, twoforms, unsplash, mediumimage, accordion
+from app.routers import upload, twoforms, unsplash, unsplash_search, accordion
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -20,7 +20,7 @@ mimetypes.add_type('application/javascript', '.js')
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(upload.router)
-app.include_router(mediumimage.router)
+app.include_router(unsplash_search.router)
 app.include_router(unsplash.router)
 app.include_router(twoforms.router)
 app.include_router(accordion.router)
