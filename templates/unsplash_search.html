@@ -16,50 +16,65 @@
 {% block page_content %}
 
 
-<h1 class="cap">Insert Unsplash Image</h1>
-<div class="unsplash_search row g-3 py-3 common-form">
-    <label class="form-label fs-3">Photo:</label>
-    <button type="button" class="btn btn-primary btn-lg search-photo" data-bs-toggle="modal" data-bs-target="#unsplashModal">
-        Search photo
-    </button>
-    <button type="button" class="btn btn-secondary btn-lg remove-photo" onclick="removePhoto()">
-        Remove photo
-    </button>
-    <div class="modal fade" id="unsplashModal" tabindex="-1" aria-labelledby="unsplashModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="unsplashModalLabel">Unsplash Photo Search</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form class="js-form" onsubmit="handleSubmit">
-                        <input type="text" class="search-input js-search-input" placeholder="Type keywords to search Unsplash, and press Go." autofocus>
-                        <button type="submit" class="btn btn-info text-white">Go</button>
-                    </form>
-                    
-                    <div class="result-stats js-result-stats container"></div>
-                    <div class="search-results js-search-results  d-flex flex-wrap"></div>
-                    
-                    <div class="pagination">
-                        <button class="hidden prev-btn js-prev btn-info"><a href="#top">Previous page</a></button>
-                        <button class="hidden next-btn js-next btn-success"><a href="#top">Next page</a></button>
+<h1 class="cap">Inserting Unsplash Image</h1>
+<div class="card bg-light mb-4">
+    <div class="card-header text-center">
+        <label class="form-label fs-3"><i class="bi-image" role="img" aria-label="Image"></i> Photo</label>
+    </div>
+    <div class="card-body">
+        <div class="unsplash_search row g-3 py-3 common-form">
+            <div class="btn-group" role="group" aria-label="Button group">
+                <button type="button" class="search-btn btn btn-primary btn-lg search-photo" data-bs-toggle="modal" data-bs-target="#unsplashModal">
+                    Search photo
+                </button>
+                <button type="button" class="btn btn-secondary btn-lg remove-photo" onclick="removePhoto()">
+                    Remove photo
+                </button>
+            </div>
+            <div class="modal fade" id="unsplashModal" tabindex="-1" aria-labelledby="unsplashModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="unsplashModalLabel">Unsplash Photo Search</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="js-form" onsubmit="handleSubmit(event)">
+                                <div class="input-group mb-4">
+                                <input type="text" class="search-input form-control search-input js-search-input" placeholder="Type keywords to search Unsplash." autofocus>
+                                <button type="submit" class="btn btn-outline-secondary text-white bg-primary "><i class="bi-search"></i></button>
+                                </div>
+                            </form>
+                            
+                            <div class="result-stats js-result-stats container"></div>
+                            <div class="search-results js-search-results  d-flex flex-wrap"></div>
+                            
+                            <div class="pagination">
+                                <button class="hidden prev-btn js-prev btn-info"><a href="#top">Previous page</a></button>
+                                <button class="hidden next-btn js-next btn-success"><a href="#top">Next page</a></button>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>            
+        </div>
+        <div class="spinner js-spinner hidden">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+        
+        <div id="unsplash-img">
+            <div class="photo" id="unsplashPhoto">
+                <img id="selectedImg" class="my-3" style="width:100%; margin:auto;" src=""/>
+                <div class="desc">Image by <a class="credit_link" id="photographerLink" target="_blank" rel="noopener" href="">name here</a> from <a
+                    class="credit_link" target="_blank" rel="noopener" href="https://unsplash.com/">Unsplash</a>
                 </div>
             </div>
         </div>
-    </div>            
-    
-    <div class="spinner js-spinner hidden">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
     </div>
-    <img id="unsplash-img" src="https://source.unsplash.com/"/>
-
-    <p id="photographer"></p>
 </div>
 
 
