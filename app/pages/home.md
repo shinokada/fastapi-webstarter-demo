@@ -21,7 +21,11 @@ Please read the Medium article at [https://shinichiokada.medium.com/](https://sh
 
 ## Updated
 
-2021-12-25
+2022-1-5
+
+## Version
+
+0.3.1
 
 ## Python environment
 
