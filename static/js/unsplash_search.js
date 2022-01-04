@@ -8,15 +8,29 @@ let currentPage = 1;
 let searchQuery;
 
 $(document).ready(function () {
-  let img = localStorage.getItem('selected_photo');
-  let photographer = localStorage.getItem('photographer');
-  let photographerPage = localStorage.getItem('photographerPage');
-  // console.log('img: ', img)
-  $('#unsplashInput').attr('value', img);
-  $('#photographer').attr('value', photographer);
-  $('#photographerPage').attr('value', photographerPage);
-  // $('#bg-div').hide();
+  const img = localStorage.getItem('ideasUnsplashselected_photo')
+  console.log('img: ', img)
+  const photographer = localStorage.getItem('ideasUnsplashphotographer')
+  const photographerPage = localStorage.getItem('ideasUnsplashphotographerPage')
+  const regularLink = localStorage.getItem('ideasUnsplashregularLink')
+
+  console.log('regularLink: ', regularLink)
+  $('#selectedImg').attr('src', 'https://source.unsplash.com/' + img);
+  $('#photographerLink').text(photographer)
+  $('#photographerLink').attr('href', photographerPage)
+  if (img) {
+    $('#unsplash-img').show()
+  } else {
+    $('#unsplash-img').hide()
+  }
+
+  $('.search-btn').on('click', () => {
+    setTimeout(function (){
+      $('.search-input').focus();
+    }, 1000);
+  })
 });
+
 
 nextBtn.on('click', () => {
 	currentPage += 1;
@@ -44,7 +58,6 @@ async function fetchResults(searchQuery) {
   spinner.removeClass('hidden');
 	try {
     const results = await searchUnsplash(searchQuery);
-    // console.log('results.total_pages: ', results.total_pages)
 		pagination(results.total_pages);
 		displayResults(results);
 	} catch(err) {
@@ -63,33 +76,31 @@ function handleSubmit(event) {
 }
 
 function changeUnsplashValue (photo) {
-  photographer = photo.getAttribute('data-photographer');
-  photographerPage = photo.getAttribute('data-photographerPage');
-  // console.log('photographer: ', photographer);
-  // console.log('photographerPage: ', photographerPage);
-  let selected_photo = `https://source.unsplash.com/${photo.id}`
-  $('#unsplashInput').val(selected_photo);
-  $('#photographer').val(photographer);
-  $('#photographerPage').val(photographerPage);
+  console.log('Changing ...')
+  const photographer = photo.getAttribute('data-photographer')
+  const photographerPage = photo.getAttribute('data-photographerPage')
+  const regularLink = photo.getAttribute('data-regularLink')
+  $('#photographerLink').text(photographer)
+  $('#photographerLink').attr('href', photographerPage)
   // display #unsplash-img div
   $('#unsplash-img').show()
   // add the src attribute
-  $('#selectedImg').attr('src', selected_photo);
+  $('#selectedImg').attr('src', 'https://source.unsplash.com/' + photo.id);
   // hide the modal
   $('#unsplashModal').modal('hide');
   // store in the localStorage
-  localStorage.setItem('selected_photo', selected_photo);
-  localStorage.setItem('photographer', photographer);
-  localStorage.setItem('photographerPage', photographerPage);
+  localStorage.setItem('ideasUnsplashselected_photo', photo.id);
+  localStorage.setItem('ideasUnsplashphotographer', photographer);
+  localStorage.setItem('ideasUnsplashphotographerPage', photographerPage);
+  localStorage.setItem('ideasUnsplashregularLink', regularLink)
 }
 
 function setStorageImg () {
   // set image to show 
-  let img = localStorage.getItem('selected_photo');
-  console.log('img: ',img)
+  let img = localStorage.getItem('ideasUnsplashselected_photo');
   if (img) {
     $('#unsplash-img').show();
-    $('#selectedImg').attr('src', img);
+    $('#selectedImg').attr('src', 'https://source.unsplash.com/' + img);
   }
 }
 
@@ -105,11 +116,14 @@ async function searchUnsplash (searchQuery) {
 
 function removePhoto () {
   // console.log('removing ... ', )
-  localStorage.removeItem('selected_photo');
-  $('#unsplashInput').attr('value','');
+  localStorage.removeItem('ideasUnsplashselected_photo');
+  localStorage.removeItem('ideasUnsplashphotographer')
+  localStorage.removeItem('ideasUnsplashphotographerPage')
+  localStorage.removeItem('ideasUnsplashregularLink')
+  
   $('#unsplash-img').hide()
-  // show #bg-div
-  // $('#bg-div').show()
+  $('#photographerLink').text('')
+  $('#photographerLink').attr('href', '')
 }
 
 function displayResults(json) {
@@ -124,14 +138,15 @@ function displayResults(json) {
     // unsplashLink https://unsplash.com/photos/esvWH-owWug
 		const photographer = result.user.name;
     const photographerPage = result.user.links.html;
+    const regularImgLink = result.urls.regular
     // photographerPage  https://unsplash.com/@campful
 		searchResults[0].insertAdjacentHTML(
 			'beforeend',
-			`<div class="unsplash_thumb" id="${id}" data-photographer="${photographer}" data-photographerPage="${photographerPage}" onClick="changeUnsplashValue(this)">
+			`<div class="unsplash_thumb" id="${id}" data-photographer="${photographer}" data-photographerPage="${photographerPage}"  onClick="changeUnsplashValue(this)">
         <div class="p-2">
         <img class="result-item"  src="${url}";/>
-        <p class="photographer-name">
-        <a href="${photographerPage}" target="_blank" style="color: black; text-decoration: none;">Photo by ${photographer} on <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+        <p class="photographer-name">Photo by 
+        <a href="${photographerPage}" target="_blank" style="color: black; ">${photographer}</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a>
         </p>
         </div>
 			</div>`
@@ -141,3 +156,5 @@ function displayResults(json) {
   resultStats.text(`About ${totalResults} results found`);
   $('.modal').scrollTop(0);
 };
+
+setStorageImg();
