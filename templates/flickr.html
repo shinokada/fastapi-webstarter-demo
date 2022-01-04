@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% set active_page = "unsplash-search" %}
+{% set active_page = "flickr-search" %}
 
 {% block title %}Two Forms{% endblock %}
 
@@ -16,36 +16,35 @@
 {% block page_content %}
 
 
-<h1 class="cap">Unsplash Image Search</h1>
+<h1 class="cap">Flickr Image Search</h1>
 <div class="card bg-light mb-4">
     <div class="card-header text-center">
         <label class="form-label fs-3"><i class="bi-image" role="img" aria-label="Image"></i> Photo</label>
     </div>
     <div class="card-body">
-        <div class="unsplash_search row g-3 py-3 common-form">
+        <div class="photo_search row g-3 py-3 common-form">
             <div class="btn-group" role="group" aria-label="Button group">
-                <button type="button" class="search-btn btn btn-primary btn-lg search-photo" data-bs-toggle="modal" data-bs-target="#unsplashModal">
+                <button type="button" class="search-btn btn btn-primary btn-lg search-photo" data-bs-toggle="modal" data-bs-target="#flickrModal">
                     Search photo
                 </button>
                 <button type="button" class="btn btn-secondary btn-lg remove-photo" onclick="removePhoto()">
                     Remove photo
                 </button>
             </div>
-            <div class="modal fade" id="unsplashModal" tabindex="-1" aria-labelledby="unsplashModalLabel" aria-hidden="true">
+            <div class="modal fade" id="flickrModal" tabindex="-1" aria-labelledby="flickrModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="unsplashModalLabel">Unsplash Photo Search</h5>
+                            <h5 class="modal-title" id="flickrModalLabel">Flickr Photo Search</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form class="js-form" onsubmit="handleSubmit(event)">
                                 <div class="input-group mb-4">
-                                <input type="text" class="search-input form-control search-input js-search-input" placeholder="Type keywords to search Unsplash." autofocus>
-                                <button type="submit" class="btn btn-outline-secondary text-white bg-primary "><i class="bi-search"></i></button>
+                                    <input type="text" class="search-input form-control search-input js-search-input" placeholder="Type keywords to search Flickr, and press Go." autofocus>
+                                    <button type="submit" class="btn btn-outline-secondary text-white bg-primary "><i class="bi-search"></i></button>
                                 </div>
                             </form>
-                            
                             <div class="result-stats js-result-stats container"></div>
                             <div class="search-results js-search-results  d-flex flex-wrap"></div>
                             
@@ -60,17 +59,22 @@
                     </div>
                 </div>
             </div>            
-        </div>
-        <div class="spinner js-spinner hidden">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
-        </div>
-        
-        <div id="unsplash-img">
-            <div class="photo" id="unsplashPhoto">
-                <img id="selectedImg" class="my-3" style="width:100%; margin:auto;" src=""/>
-                <div class="desc">Image by <a class="credit_link" id="photographerLink" target="_blank" rel="noopener" href="">name here</a> from <a
-                    class="credit_link" target="_blank" rel="noopener" href="https://unsplash.com/">Unsplash</a>
+            
+            <div class="spinner js-spinner hidden">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+            
+            <div class="selected-img">
+                <div class="photo" id="flickrPhoto">
+                    <img id="selectedImg" style="width:90%; margin:auto;" src=""/>
+                    <div class="desc">Image by <a class="credit_link" id="photographerLink" target="_blank" rel="noopener" href="#">Photographer</a> from <a
+                        class="credit_link" target="_blank" rel="noopener" href="https://flickr.com/">Flickr</a> is
+                        licensed
+                        under <a class="credit_link" target="_blank" id="license_link" rel="noopener"
+                            href="https://creativecommons.org/licenses/{{license_name}}/2.0">CC
+                            {{license_name|upper}} 2.0</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,6 +87,6 @@
 {% block scripts %}
 {{ super() }}
 
-<script src="{{ url_for('static', path='/js/unsplash_search.js') }}"></script>
+<script src="{{ url_for('static', path='/js/flickr_search.js') }}"></script>
 
 {% endblock %}
