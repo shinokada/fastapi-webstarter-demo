@@ -184,3 +184,24 @@ a.article:hover {
     justify-content: end;
     width:100%;
 }
+
+/* copy to clipboard */
+.mycontainer{
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mycontainer a{
+    text-decoration: underline;
+    color:rgb(11, 1, 77);
+}
+
+.gif-img{
+    width:662px;
+    margin:20px auto;
+}
+
+.gif-img img{
+    margin-top: 20px;
+}

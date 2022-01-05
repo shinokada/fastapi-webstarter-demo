@@ -5,29 +5,26 @@
 
 {% block head %}
 {{ super() }}
-<!-- Bootstrap 5 CSS CDN -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<!-- Bootstrap 5 JS CDN -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<link href="{{ url_for('static', path='/css/search_image.css') }}" rel="stylesheet">
 
 {% endblock %}
 
 {% block page_content %}
-
-
-
-<div class="copyright">
-    <p class="textToCopy">
-        Image by <a href="/quick-text-on-image">Quick Text on Image</a>.
-        {% if photographer %}
-        <span>
-            Background photo by <a href="{{photographerPage}}">{{photographer}}</a> on <a href="{{photographerPage}}">Unsplash</a>
-        </span> 
-        {% endif %}
-    </p>
-    <button type="button" class="btn" id="copytoclipboard" onclick="copy('.textToCopy')">Copy</button>
+<div class="mycontainer">
+    <div class="card">
+        <img src="/static/images/unsplash1.jpeg"/>
+        <div class="card-body">
+                <p class="textToCopy">
+                    Photo by <a href="https://unsplash.com/@peter_mc_greats" target="_blank">Pietro De Grandi</a> on <a href="https://unsplash.com/photos/T7K4aEPoGGk" target="_blank">Unsplash</a>
+                </p>
+                <button type="button" class="btn btn-primary" id="copytoclipboard" onclick="copy('.textToCopy')">Copy</button>
+        </div>
+    </div>
 </div>
+<div class="gif-img">
+    <h3>Demo</3>
+    <img src="/static/images/copy.gif"/>
+</div>
+    
 
 
 
