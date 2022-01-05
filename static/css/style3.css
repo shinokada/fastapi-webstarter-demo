@@ -123,7 +123,7 @@ a:focus {
     padding: 10px;
     font-size: 1.1em;
     display: block;
-    color:#fff;
+   
 }
 
 #sidebar ul li a:hover {
@@ -131,6 +131,9 @@ a:focus {
     background: #fff;
 }
 
+#sidebar .dropdown-menu{
+    width: 95%;
+}
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;

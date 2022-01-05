@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.get("/unsplash-search", response_class=HTMLResponse)
 async def get_index(request: Request,):
-    title = "Medium Unsplash Image"
+    title = "Unsplash Image Search"
     data = {
         "request": request,
         "title": title,
