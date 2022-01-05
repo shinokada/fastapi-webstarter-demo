@@ -25,7 +25,7 @@ Please read the Medium article at [https://shinichiokada.medium.com/](https://sh
 
 ## Version
 
-0.3.1
+0.4.0
 
 ## Python environment
 
@@ -86,10 +86,6 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 - Accordion
 - Markdown pages
 - Two Forms
-
-## Note
-
-http://127.0.0.1:8000/medium-unsplash-image uses Bootstrap 5 and other pages use Bootstrap 4.
 
 ## Test
 
