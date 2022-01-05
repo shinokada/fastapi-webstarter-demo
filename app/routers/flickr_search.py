@@ -15,7 +15,7 @@ async def get_flickr(request: Request):
         "title": "Flickr Search"
     }
 
-    return templates.TemplateResponse("flickr.html", data)
+    return templates.TemplateResponse("flickr_search.html", data)
 
 
 @router.get("/flickr_photos/{tag}/{page_num}")
