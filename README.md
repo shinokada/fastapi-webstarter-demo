@@ -19,20 +19,21 @@ This repo includes all the file and it is ready to deploy to Heroku.
 - static
 - templates
 
-[Demo](https://fastapi-web-starter-2.herokuapp.com/)
+[Demo](https://fastapi-webstarter-demo.herokuapp.com/)
 
 ## Requirement
 
-See requirements.txt.
+- Python 3.9.6
+- See requirements.txt.
 
 ## Installation & Usage
 
 Get your Unsplash API and put it in the `.env` file.
 
 ```bash
-$ git clone git@github.com:shinokada/fastapi-web-starter.git
+$ git clone git@github.com:shinokada/fastapi-webstarter-demo.git
 # change the directory
-$ cd fastapi-web-starter
+$ cd fastapi-webstarter-demo
 # install packages
 $ pip install -r requirements.txt
 # start the server
@@ -45,7 +46,8 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
 ## Features
 
-- Medium-like Unsplash image insert
+- Flickr image search
+- Unsplash image search
 - Drag & Drop Form
 - Menu
 - Unsplash
@@ -53,17 +55,13 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 - Markdown pages
 - Two Forms
 
-## Note
-
-http://127.0.0.1:8000/medium-unsplash-image uses Bootstrap 5 and other pages use Bootstrap 4.
-
 ## Test
 
 All tests are under `tests` directory.
 
 ```bash
 # Change the directory
-$ cd fastapi-web-starter
+$ cd fastapi-webstarter-demo
 # Run tests
 $ pytest -v
 ```
