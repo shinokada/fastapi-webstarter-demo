@@ -1,18 +1,14 @@
 {% extends "base.html" %}
 {% set active_page = "flickr-search" %}
 
-{% block title %}Two Forms{% endblock %}
+{% block title %}Flickr Search{% endblock %}
 
 {% block head %}
 {{ super() }}
-
 <link href="{{ url_for('static', path='/css/search_image.css') }}" rel="stylesheet">
-
 {% endblock %}
 
 {% block page_content %}
-
-
 <h1 class="cap">Flickr Photo Search</h1>
 <div class="card bg-light mb-4">
     <div class="card-header text-center">
@@ -38,7 +34,7 @@
                         <div class="modal-body">
                             <form class="js-form" onsubmit="handleSubmit(event)">
                                 <div class="input-group mb-4">
-                                    <input type="text" class="search-input form-control search-input js-search-input" placeholder="Type keywords to search Flickr, and press Go." autofocus>
+                                    <input type="text" class="search-input form-control search-input js-search-input" placeholder="Type keywords to search Flickr." autofocus>
                                     <button type="submit" class="btn btn-outline-secondary text-white bg-primary "><i class="bi-search"></i></button>
                                 </div>
                             </form>
@@ -77,13 +73,9 @@
         </div>
     </div>
 </div>
-
-
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
-
 <script src="{{ url_for('static', path='/js/flickr_search.js') }}"></script>
-
 {% endblock %}

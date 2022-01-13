@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% set active_page = "flickr-search" %}
 
-{% block title %}Two Forms{% endblock %}
+{% block title %}Copy to clipboard{% endblock %}
 
 {% block head %}
 {{ super() }}
-
 {% endblock %}
 
 {% block page_content %}
@@ -24,15 +23,10 @@
     <h3>Demo</3>
     <img src="/static/images/copy.gif"/>
 </div>
-    
-
-
-
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
-
 <script>
     // copy function to copy credit text 
     function copy(selector){
@@ -46,5 +40,4 @@
         $temp.remove();
     }
 </script>
-
 {% endblock %}

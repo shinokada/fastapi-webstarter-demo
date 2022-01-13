@@ -23,3 +23,16 @@ async def photos(request: Request, tag: str, page_num: int):
     # tag = tag
     data = unsplashFetch(tag, page_num)
     return(data)
+
+
+@router.get("/trackdownload/{id}/{ixid}")
+async def unsplash_track_download(request: Request, id: str, ixid: str):
+    url = "https://api.unsplash.com/photos/"+id+"/download?ixid="+ixid
+    # print('url', url)
+    unsplash_key = os.getenv("unsplash_key")
+    param = {
+        "client_id": unsplash_key,
+    }
+    response = requests.get(url, param)
+    data = response.json()
+    return data

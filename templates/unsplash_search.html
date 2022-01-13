@@ -1,17 +1,14 @@
 {% extends "base.html" %}
 {% set active_page = "unsplash-search" %}
 
-{% block title %}Two Forms{% endblock %}
+{% block title %}Unsplash Search{% endblock %}
 
 {% block head %}
 {{ super() }}
 <link href="{{ url_for('static', path='/css/search_image.css') }}" rel="stylesheet">
-
 {% endblock %}
 
 {% block page_content %}
-
-
 <h1 class="cap">Unsplash Image Search</h1>
 <div class="card bg-light mb-4">
     <div class="card-header text-center">
@@ -72,13 +69,9 @@
         </div>
     </div>
 </div>
-
-
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
-
 <script src="{{ url_for('static', path='/js/unsplash_search.js') }}"></script>
-
 {% endblock %}
