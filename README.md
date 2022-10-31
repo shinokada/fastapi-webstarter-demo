@@ -19,7 +19,7 @@ This repo includes all the file and it is ready to deploy to Heroku.
 - static
 - templates
 
-[Demo](https://fastapi-webstarter-demo.herokuapp.com/)
+[Demo](https://fastapi-webstarter-demo.deta.dev/)
 
 ## Requirement
 
