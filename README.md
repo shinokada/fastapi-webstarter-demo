@@ -2,8 +2,6 @@
 
 Please read the Medium article at [https://shinichiokada.medium.com/](https://shinichiokada.medium.com/).
 
-[Please sign up for more free resources.](https://mailchi.mp/ae9891ba897a/codewithshin)
-
 ## Overview
 
 A simple website ready to deploy.
